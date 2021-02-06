@@ -1,0 +1,52 @@
+<idea-plugin>
+    <id>com.your.company.unique.plugin.id</id>
+    <name>ModuleDependencyManager</name>
+    <version>1.0</version>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">leobert</vendor>
+
+    <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <defaultProjectTypeProvider type="Android"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="MDM.SampleMenu" text="MDM" description="Module dependency manage menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="MDM.Demo" class="osp.leobert.plugin.mdm.DemoAction" text="MDM_Demo" description="MDM Demo">
+                <keyboard-shortcut keymap="$default" first-keystroke="BACK_QUOTE" second-keystroke="BACK_SLASH"/>
+            </action>
+        </group>
+
+        <!--        <action id="MDM.Demo" class="osp.leobert.plugin.mdm.DemoAction" text="MDM_Demo" description="MDM Demo">-->
+        <!--            <add-to-group group-id="MainMenu" anchor="first"/>-->
+        <!--            <keyboard-shortcut keymap="$default" first-keystroke="BACK_QUOTE" second-keystroke="BACK_SLASH"/>-->
+        <!--        </action>-->
+    </actions>
+
+    <project-components>
+        <component>
+            <implementation-class>osp.leobert.plugin.mdm.component.MdmProjectComponentImpl</implementation-class>
+        </component>
+    </project-components>
+</idea-plugin>
